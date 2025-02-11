@@ -51,7 +51,7 @@ on the AO pin when gamma = 0.7 and rl10 = 50 (the default values):
 \* When VCC = 5V  
 \*\* Measured one meter away from the monitor
 
-The following code to convert the return value of `analogRead()` into a illumination value (in lux):
+The following code to convert the return value of `analogRead()` into a analogRead() value:
 
 ```cpp
 // These constants should match the photoresistor's "gamma" and "rl10" attributes
@@ -65,7 +65,6 @@ float resistance = 2000 * voltage / (1 - voltage / 5);
 float lux = pow(RL10 * 1e3 * pow(10, GAMMA) / resistance, (1 / GAMMA));
 ```
 
-The `lux` variable will contain the illumination level in lux. The value of `lux` may be infinite (`inf`) when the sensor is in a very bright environment. You can use `isfinite(lux)` to check if the value is finite before using it, like in [this example](https://wokwi.com/projects/361196415746754561).
 
 ### Digital output
 
